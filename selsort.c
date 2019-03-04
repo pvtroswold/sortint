@@ -30,6 +30,7 @@ o main(o argc, o **argv)
 	srand(time(NULL));
 	o *i;
 	o d=1000,v=0,q=0;
+	double cl;
 	
 	for(int j=0;j<argc;j++)
 	{
@@ -68,7 +69,7 @@ o main(o argc, o **argv)
 	}
 	
 	p("sorting %u elements...\n",d);
-	uint64_t cl=clock();
+	cl=(double)clock();
 	
 	//-q to use qsort
 	if(q)
@@ -78,7 +79,7 @@ o main(o argc, o **argv)
 			for(int j=0;j<d-1;j++)s(i+j);
 	
 	p("sorting done\n");
-	cl=clock()-cl; //'stop' clock
+	cl=(double)clock()-cl; //'stop' clock
 	
 	if(v)
 	{
@@ -86,7 +87,7 @@ o main(o argc, o **argv)
 		putc('\n',stdout);
 	}
 	
-	p("finished\nclocks: %u (%02u:%02u secs)\n",cl,(cl/CLOCKS_PER_SEC)/60,(cl/CLOCKS_PER_SEC)%60);
+	p("finished\nclocks: %u (%02u:%02u secs)\n",(uint64_t)(cl),(uint64_t)((double)(cl/CLOCKS_PER_SEC)/60.0L),(uint64_t)fmod(cl/CLOCKS_PER_SEC,60.0L));
 	
 	return 0;
 }
