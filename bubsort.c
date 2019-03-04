@@ -1,4 +1,4 @@
-//selection sort variant
+//bubble sort variant
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
