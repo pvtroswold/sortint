@@ -25,7 +25,7 @@ o main(o argc, o **argv)
 	o d=1000,v=0;
 	if(argc<2)
 	{
-		p("usage: %s [-s <size of array>] [-v (for verbose)]\n");
+		p("usage: %s [-s <size of array>] [-v (for verbose)]\n",argv[0]);
 		return 1;
 	}
 	for(int j=0;j<argc;j++)
