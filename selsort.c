@@ -23,11 +23,11 @@ void s(o *a)
 o main(o argc, o **argv)
 {
 	o d=1000,v=0;
-	if(argc<2)
-	{
-		p("usage: %s [-s <size of array>] [-v (for verbose)]\n",argv[0]);
-		return 1;
-	}
+	// if(argc<2)
+	// {
+	// 	p("usage: %s [-s <size of array>] [-v (for verbose)]\n",argv[0]);
+	// 	return 1;
+	// }
 	for(int j=0;j<argc;j++)
 	{
 		if(strcmp(argv[j],"-s")==0 && argc>j) d=atoi(argv[++j]);
