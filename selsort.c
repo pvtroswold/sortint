@@ -38,14 +38,14 @@ o main(o argc, o **argv)
 		if(strcmp(argv[j],"-v")==0) v=1;
 		if(strcmp(argv[j],"-q")==0) q=1;
 	}
-	p("d:%i,v=%i\n",d,v);
+	// p("d:%i,v=%i\n",d,v);
 	
 	srand(time(NULL));
 	o i[100000];
 	o is=sizeof(i)/sizeof(o);
 	is=is<d?is:d;
 	
-	p("d:%i,v=%i,is=%i\n",d,v,is);
+	// p("d:%i,v=%i,is=%i\n",d,v,is);
 	
 	p("randomizing...\n");
 	for(int j=0;j<is;j++)i[j]=rand()%UINT_MAX;
