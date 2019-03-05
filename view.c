@@ -3,38 +3,31 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <assert.h>
+#include <errno.h>
 
 #define xy2i(x,y,w) ((y)*w+(x))
 #define spix(x,y,w,col) wind->pix[xy2i((x),(y),w)*sizeof(TPixel)].r=col>>16&0x0000ff;\
 		wind->pix[xy2i((x),(y),w)*sizeof(TPixel)].g=col>>8&0x0000ff;\
 		wind->pix[xy2i((x),(y),w)*sizeof(TPixel)].b=col&0x0000ff
 
-void main()
+void main(int argc,char **argv)
 {
 	int *i,d;
 	
-	Tigr *wind=tigrWindow(640,480,"this heer ar winndo",NULL);
+	Tigr *wind=tigrWindow(640,480,"sortint | view",NULL);
 	
-	tigrUpdate(wind);
-	printf("reading file...\n");
-	FILE *f=fopen("t.dat","rb");
-	assert(f!=NULL);
-	if(f)
+	fscanf(stdin,"ints: %i",&d);
+	assert(d>=0);
+	
+	i=malloc(d*sizeof(int));
+	assert(i!=NULL);
+	printf("read %i ints\n",d);
+	
+	for(int j=0;j<d;j++)
 	{
-		fscanf(f,"ints: %i",&d);
-		assert(d!=0);
-		
-		i=malloc(d*sizeof(int));
-		assert(i!=NULL);
-		printf("read %i ints\n",d);
-		
-		for(int j=0;j<d;j++)
-		{
-			fscanf(f,"%i\n",&i[j]);
-			// printf("%i: %i\n",j,i[j]);
-		}
+		fscanf(stdin,"%i\n",&i[j]);
+		// printf("%i: %i\n",j,i[j]);
 	}
-	printf("successfully read file\n");
 	
 	printf("smallest:%i\nbiggest:%i\n",i[0],i[d-1]);
 	
