@@ -8,23 +8,21 @@
 #define pr printf
 
 typedef int o;
-void s(o *a)
+void bs(o *a,o num)
 {
-	if(*a>*(a+1))
-	{
-		o c=*a;
-		*a=*(a+1);
-		*(a+1)=c;
-	}
+	o t;
+	for(int k=0;k<num-1;k++)
+		for(int j=0;(j<num-1-k);j++)
+			if(a[j]>a[j+1])
+			{
+				t=a[j];a[j]=a[j+1];a[j+1]=t;
+			}
 }
 void qs(o *a,o num)
 {
 	o *p=a+num-1,*i=a-1,*j=a,t;
 	
-	if(num<=1)
-	{
-		return;
-	}
+	if(num<=1) return;
 	
 	for(int k=0;k<num && j+k<p;k++)
 	{
@@ -79,20 +77,17 @@ o main(o argc, o **argv)
 		putc('\n',stdout);
 	}
 	
-	if(!n)pr("\nsorting %u elements...\n",d);
 	cl=(double)clock();
 	
 	//-q to use quick sort
 	if(!z)
 	{
-		if(q)
-			qs(i,d);
-		else
-			for(int k=0;k<d-1;k++)
-				for(int j=0;(j<d-1-k);j++)s(i+j);
+		if(!n)pr("\nsorting %u elements...\n",d);
+		if(q) qs(i,d);
+		else bs(i,d);
+		if(!n)pr("sorting done\n");
 	}
 	
-	if(!n)pr("sorting done\n");
 	cl=(double)clock()-cl; //'stop' clock
 	
 	if(v)
