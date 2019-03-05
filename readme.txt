@@ -11,3 +11,6 @@ the bubble sort and quick sort implementations.
 
 To use view (only with stdout from sortint): sortint -n | view
 Alternatively                              : sortint -n > file.dat & view < file.dat
+
+view.c depends on the tigr library, which you can find as of this writing at the following URL:
+https://bitbucket.org/rmitton/tigr/src/be3832bee7fb2f274fe5823e38f8ec7fa94e0ce9?at=default
