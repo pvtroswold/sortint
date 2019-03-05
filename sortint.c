@@ -103,7 +103,7 @@ o main(o argc, o **argv)
 		putc('\n',stdout);
 	}
 	
-	if(!n)pr("finished\nclocks: %u (%02u:%02u secs)\n",(uint64_t)(cl),(uint64_t)((double)(cl/CLOCKS_PER_SEC)/60.0L),(uint64_t)fmod(cl/CLOCKS_PER_SEC,60.0L));
+	if(!n)pr("\nfinished\nclocks: %u (%02u:%02u secs)\n",(uint64_t)(cl),(uint64_t)((double)(cl/CLOCKS_PER_SEC)/60.0L),(uint64_t)fmod(cl/CLOCKS_PER_SEC,60.0L));
 	
 	return 0;
 }
