@@ -44,7 +44,7 @@ o main(o argc, o **argv)
 {
 	srand(time(NULL));
 	o *i;
-	o d=1000,v=0,q=0,n=0;
+	o d=1000,v=0,q=0,n=0,z=0;
 	double cl;
 	
 	for(int j=0;j<argc;j++)
@@ -54,9 +54,10 @@ o main(o argc, o **argv)
 		if(strcmp(argv[j],"-v")==0) v=1; //verbose
 		if(strcmp(argv[j],"-n")==0) v=1,n=1; //output values on each line
 		if(strcmp(argv[j],"-q")==0) q=1; //use qsort instead
+		if(strcmp(argv[j],"-z")==0) z=1; //don't sort
 		if(strcmp(argv[j],"?")==0)
 		{
-			pr("usage: %s [?] [-s <size of array>] [-r <random seed>] [-v (for verbose)] [-n (ints only output)] [-q (use qsort instead)]\n",argv[0]);
+			pr("usage: %s [?] [-s <size of array>] [-r <random seed>] [-v] [-n] [-q] [-z]\n",argv[0]);
 			return 0;
 		}
 	}
@@ -82,11 +83,14 @@ o main(o argc, o **argv)
 	cl=(double)clock();
 	
 	//-q to use quick sort
-	if(q)
-		qs(i,d);
-	else
-		for(int k=0;k<d-1;k++)
-			for(int j=0;(j<d-1-k);j++)s(i+j);
+	if(!z)
+	{
+		if(q)
+			qs(i,d);
+		else
+			for(int k=0;k<d-1;k++)
+				for(int j=0;(j<d-1-k);j++)s(i+j);
+	}
 	
 	if(!n)pr("sorting done\n");
 	cl=(double)clock()-cl; //'stop' clock
