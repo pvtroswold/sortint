@@ -1,7 +1,8 @@
 Note: These programs have only been tested on Windows
 
 
-To use sortint:  sortint [?] [-s <size of array>] [-r <random seed>] [-v (for verbose)] [-n (ints only output)] [-q (use qsort instead)] [-z (don't sort)]
+To use sortint:  sortint [?] [-s <size of array>] [-r <random seed>] [-v (for verbose)]
+                         [-n (ints only output)] [-q (use qsort instead)] [-z (don't sort)]
 
 e.g.,  sortint -s 5000 -r 1234 -q
 will print 5000 random integers with random seed '1234' using the implementation of thequick sort algorithm.
