@@ -5,6 +5,7 @@
 #include <inttypes.h>
 #include <time.h>
 #include <string.h>
+#include <math.h>
 #define pr printf
 
 typedef int o;
@@ -38,7 +39,7 @@ void qs(o *a,o num)
 }
 
 
-o main(o argc, o **argv)
+o main(o argc, char **argv)
 {
 	srand(time(NULL));
 	o *i;
@@ -102,7 +103,7 @@ o main(o argc, o **argv)
 		putc('\n',stdout);
 	}
 	
-	if(!n)pr("\nfinished\nclocks: %u (%02u:%02u secs)\n",(uint64_t)(cl),(uint64_t)((double)(cl/CLOCKS_PER_SEC)/60.0L),(uint64_t)fmod(cl/CLOCKS_PER_SEC,60.0L));
+	if(!n)pr("\nfinished\nclocks: %llu (%02llu:%02llu secs)\n",(uint64_t)(cl),(uint64_t)((double)(cl/CLOCKS_PER_SEC)/60.0L),(uint64_t)fmod(cl/CLOCKS_PER_SEC,60.0L));
 	
 	return 0;
 }
